@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/LoginScreen.unity
+    guid: 32488872f705cef4bb183ef876062737
+  - enabled: 1
+    path: Assets/Scenes/HomeTown.unity
+    guid: 714d9b9bfcd0b8347b51292ede901d61
+  - enabled: 1
+    path: Assets/Scenes/BushLevel.unity
+    guid: 0f098038b67a5fa4b9d66b7a9e1af0ca
+  - enabled: 1
+    path: Assets/Scenes/Inside_Building1.unity
+    guid: 947e5e957cb4e284b861639163a73c59
+  - enabled: 1
+    path: Assets/Scenes/SlimeLevel.unity
+    guid: 8a84f32f67560e8418d309842caccde9
+  m_configObjects: {}
