@@ -60,7 +60,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\GameManager.cs" />
     <Compile Include="Assets\Scripts\BackgroundPropSpawner.cs" />
     <Compile Include="Assets\Scripts\CameraFollow.cs" />
     <Compile Include="Assets\Scripts\Destroyer.cs" />
@@ -68,6 +67,7 @@
     <Compile Include="Assets\Scripts\Enemies\Enemy.cs" />
     <Compile Include="Assets\Scripts\Enemies\Slime_Enemy.cs" />
     <Compile Include="Assets\Scripts\FollowPlayer.cs" />
+    <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\Gun.cs" />
     <Compile Include="Assets\Scripts\HealthPickup.cs" />
     <Compile Include="Assets\Scripts\Interactable.cs" />
@@ -81,14 +81,15 @@
     <Compile Include="Assets\Scripts\PickupSpawner.cs" />
     <Compile Include="Assets\Scripts\PlayerControl.cs" />
     <Compile Include="Assets\Scripts\PlayerHealth.cs" />
+    <Compile Include="Assets\Scripts\RegisterScript.cs" />
     <Compile Include="Assets\Scripts\Remover.cs" />
     <Compile Include="Assets\Scripts\Rocket.cs" />
     <Compile Include="Assets\Scripts\SceneSpawnLocation.cs" />
     <Compile Include="Assets\Scripts\SceneSwitch.cs" />
     <Compile Include="Assets\Scripts\SetParticleSortingLayer.cs" />
+    <Compile Include="Assets\Scripts\Shop.cs" />
     <Compile Include="Assets\Scripts\Spawner.cs" />
     <Compile Include="Assets\Scripts\UI\BackgroundParallax.cs" />
-    <Compile Include="Assets\Shop.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />
