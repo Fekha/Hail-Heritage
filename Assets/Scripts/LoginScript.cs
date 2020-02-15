@@ -10,7 +10,7 @@ public class LoginScript : MonoBehaviour
     public InputField PassField;
     public void LoadIntoGame(int scene)
     {
-        if (UserField.text == "A" && PassField.text == "B")
+        if (UserField.text == "A" && PassField.text == "B" || UserField.text == "" && PassField.text == "")
         {
             SceneManager.LoadScene(scene);
         }

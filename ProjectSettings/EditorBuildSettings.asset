@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/LoginScreen.unity
     guid: 32488872f705cef4bb183ef876062737
   - enabled: 1
+    path: Assets/Scenes/StartVillage.unity
+    guid: e70ba1868a1699e43ac2964c76f55110
+  - enabled: 1
     path: Assets/Scenes/HomeTown.unity
     guid: 714d9b9bfcd0b8347b51292ede901d61
   - enabled: 1

@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class SceneSwitch : MonoBehaviour
 {
+    // If next scene is 0 that means there is no scene to go to, 
+    //the exit is where to spawn 0 = gowest 1 = goeast 2=goin
     public int NextEastScene = 0;
     public int NextWestScene = 0;
     public int NextNorthScene = 0;
