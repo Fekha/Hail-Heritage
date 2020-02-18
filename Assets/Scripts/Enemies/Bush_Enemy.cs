@@ -3,9 +3,10 @@ using System.Collections;
 
 public class Bush_Enemy : Enemy
 {
+    bool isHit = false;
     void Awake()
     {
-        ren = transform.Find("Full_Bush").GetComponent<SpriteRenderer>();
+        //ren = transform.Find("Bush_Enemy").GetComponent<SpriteRenderer>();
         moveSpeed = 0f;
     }
 
@@ -19,8 +20,9 @@ public class Bush_Enemy : Enemy
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Bullet")
+        if (collision.tag == "Bullet" && !isHit)
         {
+            isHit = true;
             if(HP > 0)
             {
                 Vector3 dropLocation = transform.position;
@@ -29,5 +31,9 @@ public class Bush_Enemy : Enemy
             }
             Hurt();
         }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        isHit = false;
     }
 }

@@ -25,6 +25,7 @@ public class Enemy : MonoBehaviour
         // Re-enable the main sprite renderer and set it's sprite to the deadEnemy sprite.
         ren.enabled = true;
         ren.sprite = deadEnemy;
+        
         // Set dead to true.
         dead = true;
 

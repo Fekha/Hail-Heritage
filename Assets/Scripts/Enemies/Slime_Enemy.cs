@@ -17,7 +17,7 @@ public class Slime_Enemy : Enemy
 	void FixedUpdate ()
 	{
 		// Create an array of all the colliders in front of the enemy.
-		Collider2D[] frontHits = Physics2D.OverlapPointAll(frontCheck.position, 1);
+		Collider2D[] frontHits = Physics2D.OverlapPointAll(frontCheck.position);
 
 		// Check each of the colliders.
 		foreach(Collider2D c in frontHits)
@@ -59,13 +59,13 @@ public class Slime_Enemy : Enemy
         int i = Random.Range(0, deathClips.Length);
         AudioSource.PlayClipAtPoint(deathClips[i], transform.position);
 
-        // Create a vector that is just above the enemy.
-        Vector3 scorePos;
-        scorePos = transform.position;
-        scorePos.y += 1.5f;
+        //// Create a vector that is just above the enemy.
+        //Vector3 scorePos;
+        //scorePos = transform.position;
+        //scorePos.y += 1.5f;
 
-        // Instantiate the 100 points prefab at this point.
-        Instantiate(hundredPointsUI, scorePos, Quaternion.identity);
-        Instantiate(LootDrop, scorePos, Quaternion.identity);
+        //// Instantiate the 100 points prefab at this point.
+        //Instantiate(hundredPointsUI, scorePos, Quaternion.identity);
+        //Instantiate(LootDrop, scorePos, Quaternion.identity);
     }
 }

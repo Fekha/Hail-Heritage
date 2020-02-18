@@ -13,19 +13,25 @@ public class CameraFollow : MonoBehaviour
 	void Awake ()
 	{
 		// Setting up the reference.
-		//player = GameObject.FindGameObjectWithTag("Player").transform;
+		player = GameObject.FindGameObjectWithTag("Player")?.transform;
 	}
 
 	bool CheckXMargin()
 	{
 		// Returns true if the distance between the camera and the player in the x axis is greater than the x margin.
-		return Mathf.Abs(transform.position.x - player.position.x) > xMargin;
+		if (player != null)
+			return Mathf.Abs(transform.position.x - player.position.x) > xMargin;
+		else
+			return false;
 	}
 
 	bool CheckYMargin()
 	{
 		// Returns true if the distance between the camera and the player in the y axis is greater than the y margin.
-		return Mathf.Abs(transform.position.y - player.position.y) > yMargin;
+		if (player != null)
+			return Mathf.Abs(transform.position.y - player.position.y+5) > yMargin;
+		else
+			return false;
 	}
     private void Update()
     {
@@ -52,7 +58,7 @@ public class CameraFollow : MonoBehaviour
 		// If the player has moved beyond the y margin...
 		if(CheckYMargin() && player != null)
 			// ... the target y coordinate should be a Lerp between the camera's current y position and the player's current y position.
-			targetY = Mathf.Lerp(transform.position.y, player.position.y, ySmooth * Time.deltaTime);
+			targetY = Mathf.Lerp(transform.position.y, player.position.y+5, ySmooth * Time.deltaTime);
 
 		// The target x and y coordinates should not be larger than the maximum or smaller than the minimum.
 		targetX = Mathf.Clamp(targetX, minXAndY.x, maxXAndY.x);
