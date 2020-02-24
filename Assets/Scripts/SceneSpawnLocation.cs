@@ -11,52 +11,21 @@ public class SceneSpawnLocation : MonoBehaviour
     {
         player = PlayerControl.instance;
         spawns = GameObject.FindGameObjectsWithTag("Respawn");
-        switch (player.currentScene)
+        switch (player.sceneSpawnLocation)
         {
+            case 0:
+                player.transform.position = spawns.OrderBy(x => x.transform.position.x).FirstOrDefault().transform.position;
+                break;
             case 1:
-                switch (player.sceneSpawnLocation)
-                {
-                    case 0:
-                        player.transform.position = spawns.FirstOrDefault(x => x.name == "GoWest").transform.position;
-                        break;
-                    case 1:
-                        player.transform.position = spawns.FirstOrDefault(x => x.name == "GoEast").transform.position;
-                        break;
-                    case 2:
-                        player.transform.position = spawns.FirstOrDefault(x => x.name == "GoIn1").transform.position;
-                        break;
-                    default:
-                        player.transform.position = spawns[0].transform.position;
-                        break;
-                }
+                player.transform.position = spawns.OrderBy(x => x.transform.position.x).LastOrDefault().transform.position;
                 break;
             case 2:
-                switch (player.sceneSpawnLocation)
-                {
-                    case 0:
-                        player.transform.position = spawns.FirstOrDefault(x => x.name == "GoWest").transform.position;
-                        break;
-                    default:
-                        player.transform.position = spawns[0].transform.position;
-                        break;
-                }
+                player.transform.position = spawns.FirstOrDefault(x => x.name == "GoIn1").transform.position;
                 break;
-            case 3:
-                switch (player.sceneSpawnLocation)
-                {
-                    case 0:
-                        player.transform.position = spawns.FirstOrDefault(x => x.name == "GoIn1").transform.position;
-                        break;
-                    default:
-                        player.transform.position = spawns[0].transform.position;
-                        break;
-                }
-                break;
-           
             default:
-                player.transform.position = spawns[0].transform.position; ;
+                player.transform.position = spawns.OrderBy(x => x.transform.position.x).FirstOrDefault().transform.position;
                 break;
         }
-       
+
     }
 }

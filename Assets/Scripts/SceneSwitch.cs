@@ -2,7 +2,10 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using Assets.Scripts.Enums;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using System.Linq;
 
 public class SceneSwitch : MonoBehaviour
 {
@@ -13,10 +16,6 @@ public class SceneSwitch : MonoBehaviour
     public int NextNorthScene = 0;
     public int NextSouthScene = 0;
     public int EnterScene = 0;
-    public int EastExit = 0;
-    public int WestExit = 0;
-    public int NorthExit = 0;
-    public int SouthExit = 0;
     public int Exit = 0;
     private bool isSwitching = false;
     private bool isShowing = false;
@@ -30,72 +29,48 @@ public class SceneSwitch : MonoBehaviour
             if (!isShowing)
             {
                 isShowing = true;
-                if (NextEastScene != 0)
+                if (NextEastScene != 0 && GameManager.NextEastScenes.Any())
                 {
-                    GameObject.Find("GameText").GetComponent<TextMeshProUGUI>().text += "Press E to go East \n";
+                    DirectionButtons.instance.GoEastButton.SetActive(true);
                 }
-                if (NextWestScene != 0)
+                if (NextWestScene != 0 && GameManager.NextWestScenes.Any())
                 {
-                    GameObject.Find("GameText").GetComponent<TextMeshProUGUI>().text += "Press W to go West \n";
+                    DirectionButtons.instance.GoWestButton.SetActive(true);
                 }
-                if (NextNorthScene != 0)
+                if (NextNorthScene != 0 && GameManager.NextNorthScenes.Any())
                 {
-                    GameObject.Find("GameText").GetComponent<TextMeshProUGUI>().text += "Press N to go North \n";
+                    DirectionButtons.instance.GoNorthButton.SetActive(true);
                 }
-                if (NextSouthScene != 0)
+                if (NextSouthScene != 0 && GameManager.NextSouthScenes.Any())
                 {
-                    GameObject.Find("GameText").GetComponent<TextMeshProUGUI>().text += "Press S to go South \n";
+                    DirectionButtons.instance.GoSouthButton.SetActive(true);
                 }
-                if (EnterScene != 0)
+                if (EnterScene != 0 && GameManager.NextInScenes.Any())
                 {
-                    GameObject.Find("GameText").GetComponent<TextMeshProUGUI>().text += "Press E to " + LeavePhrase;
+                    DirectionButtons.instance.GoInButton.SetActive(true);
                 }
-            }
-            if (Input.GetKeyDown("e") && NextEastScene != 0 && !isSwitching)
-            {
-                isSwitching = true;
-                PlayerControl.instance.currentScene = NextEastScene;
-                PlayerControl.instance.sceneSpawnLocation = EastExit;
-                SceneManager.LoadScene(NextEastScene);
-            }
-            if (Input.GetKeyDown("w") && NextWestScene != 0 && !isSwitching)
-            {
-                isSwitching = true;
-                PlayerControl.instance.currentScene = NextWestScene;
-                PlayerControl.instance.sceneSpawnLocation = WestExit;
-                SceneManager.LoadScene(NextWestScene);
-            }
-            if (Input.GetKeyDown("n") && NextNorthScene != 0 && !isSwitching)
-            {
-                isSwitching = true;
-                PlayerControl.instance.currentScene = NextNorthScene;
-                PlayerControl.instance.sceneSpawnLocation = NorthExit;
-                SceneManager.LoadScene(NextNorthScene);
-            }
-            if (Input.GetKeyDown("s") && NextSouthScene != 0 && !isSwitching)
-            {
-                isSwitching = true;
-                PlayerControl.instance.currentScene = NextSouthScene;
-                PlayerControl.instance.sceneSpawnLocation = SouthExit;
-                SceneManager.LoadScene(NextSouthScene);
-            }
-            if (Input.GetKeyDown("e") && EnterScene != 0 && NextEastScene == 0 && !isSwitching)
-            {
-                isSwitching = true;
-                PlayerControl.instance.currentScene = EnterScene;
-                PlayerControl.instance.sceneSpawnLocation = Exit;
-                SceneManager.LoadScene(EnterScene);
-            }
+            } 
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        GameObject.Find("GameText").GetComponent<TextMeshProUGUI>().text = "";
         isShowing = false;
+        GameObject.Find("GameText").GetComponent<TextMeshProUGUI>().text = string.Empty;
+        DirectionButtons.instance.GoEastButton.SetActive(false);
+        DirectionButtons.instance.GoWestButton.SetActive(false);
+        DirectionButtons.instance.GoNorthButton.SetActive(false);
+        DirectionButtons.instance.GoSouthButton.SetActive(false);
+        DirectionButtons.instance.GoInButton.SetActive(false);
+        
     }
     public void OnLevelWasLoaded(int level)
     {
-        GameObject.Find("GameText").GetComponent<TextMeshProUGUI>().text = "";
+        GameObject.Find("GameText").GetComponent<TextMeshProUGUI>().text = string.Empty;
+        DirectionButtons.instance.GoEastButton.SetActive(false);
+        DirectionButtons.instance.GoWestButton.SetActive(false);
+        DirectionButtons.instance.GoNorthButton.SetActive(false);
+        DirectionButtons.instance.GoSouthButton.SetActive(false);
+        DirectionButtons.instance.GoInButton.SetActive(false);
         isSwitching = false;
     }
 }

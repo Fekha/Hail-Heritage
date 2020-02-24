@@ -15,6 +15,7 @@ TagManager:
   - HealthBar
   - Door
   - Loot
+  - Entrance
   layers:
   - Default
   - TransparentFX

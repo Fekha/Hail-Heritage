@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Scenes/BushLevel.unity
+- path: Assets/Scenes/StartVillage.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0

@@ -27,6 +27,7 @@ public class Bush_Enemy : Enemy
             {
                 Vector3 dropLocation = transform.position;
                 dropLocation.x = dropLocation.x + 2f;
+                dropLocation.y = 0;
                 Instantiate(LootDrop, dropLocation, Quaternion.identity);
             }
             Hurt();

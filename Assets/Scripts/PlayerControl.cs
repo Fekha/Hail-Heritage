@@ -45,15 +45,6 @@ public class PlayerControl : MonoBehaviour
 	private Animator anim;					// Reference to the player's animator component.
 
     Collider2D swordCol;
-	//void Awake()
-	//{
-	//	// Setting up references.
-	//	groundCheck = transform.Find("groundCheck");
-	//	anim = GetComponent<Animator>();
- //       swordCol = GameObject.Find("rightHand").GetComponent<Collider2D>();
- //       swordCol.enabled = false;
- //       DontDestroyOnLoad(transform.gameObject);
- //   }
 	void Update()
 	{
         //RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.zero);
@@ -87,21 +78,21 @@ public class PlayerControl : MonoBehaviour
 		anim.SetFloat("Speed", Mathf.Abs(h));
 
 		// If the player is changing direction (h has a different sign to velocity.x) or hasn't reached maxSpeed yet...
-		if(h * GetComponent<Rigidbody2D>().velocity.x < maxSpeed)
+		if (h * GetComponent<Rigidbody2D>().velocity.x < maxSpeed)
 			// ... add a force to the player.
 			GetComponent<Rigidbody2D>().AddForce(Vector2.right * h * moveForce);
 
 		// If the player's horizontal velocity is greater than the maxSpeed...
-		if(Mathf.Abs(GetComponent<Rigidbody2D>().velocity.x) > maxSpeed)
+		if (Mathf.Abs(GetComponent<Rigidbody2D>().velocity.x) > maxSpeed)
 			// ... set the player's velocity to the maxSpeed in the x axis.
 			GetComponent<Rigidbody2D>().velocity = new Vector2(Mathf.Sign(GetComponent<Rigidbody2D>().velocity.x) * maxSpeed, GetComponent<Rigidbody2D>().velocity.y);
 
 		// If the input is moving the player right and the player is facing left...
-		if((h > 0 && !facingRight) || (h < 0 && facingRight))
+		if ((h > 0 && !facingRight) || (h < 0 && facingRight))
 			Flip();
 
 		// If the player should jump...
-		if(jump)
+		if (jump)
 		{
 			// Set the Jump animator trigger parameter.
 			anim.SetTrigger("Jump");
@@ -129,13 +120,13 @@ public class PlayerControl : MonoBehaviour
 		theScale.x *= -1;
 		transform.localScale = theScale;
 	}
-    void Attack ()
+	void Attack()
 	{
-        swordCol.enabled = true;
+		swordCol.enabled = true;
 	}
-    void NoAttack ()
+	void NoAttack()
 	{
-        swordCol.enabled = false;
-        anim.ResetTrigger("Attack");
+		swordCol.enabled = false;
+		anim.ResetTrigger("Attack");
 	}
 }
